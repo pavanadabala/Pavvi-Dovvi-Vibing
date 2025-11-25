@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Countdown Timer</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-section img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+
+    .logo-section h1 {
+      color: #930d0d;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .logo-section p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #930d0d;
+      box-shadow: 0 0 0 3px rgba(147, 13, 13, 0.1);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #930d0d 0%, #7a0b0b 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(147, 13, 13, 0.3);
+    }
+
+    .btn-login:active {
+      transform: translateY(0);
+    }
+
+    .btn-login:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-message {
+      background: #fee;
+      color: #c33;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 25px 0;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .signup-link {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: #930d0d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin-top: 8px;
+    }
+
+    .forgot-password a {
+      color: #930d0d;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    /* Loading spinner */
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
+
+    .btn-login.loading .spinner {
+      display: block;
+    }
+
+    .btn-login.loading .btn-text {
+      display: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+
+      .logo-section h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="logo-section">
+      <img src="logo.svg" alt="Logo">
+      <h1>Welcome Back</h1>
+      <p>Sign in to continue to your dashboard</p>
+    </div>
+
+    <div class="error-message" id="error-message"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <div class="forgot-password">
+        <a href="#" id="forgot-password-link">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn-login" id="login-btn">
+        <span class="btn-text">Sign In</span>
+        <div class="spinner"></div>
+      </button>
+    </form>
+
+    <div class="divider">Don't have an account?</div>
+
+    <div class="signup-link">
+      <a href="signup.html">Create a new account</a>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- App Scripts -->
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+
+  <script>
+    // Check if already logged in
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+
+    // Login form handler
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
+      const loginBtn = document.getElementById('login-btn');
+
+      // Clear previous errors
+      errorMessage.classList.remove('show');
+
+      // Show loading state
+      loginBtn.classList.add('loading');
+      loginBtn.disabled = true;
+
+      // Attempt login
+      const result = await loginUser(email, password);
+
+      if (result.success) {
+        window.location.href = 'dashboard.html';
+      } else {
+        // Show error
+        errorMessage.textContent = result.error;
+        errorMessage.classList.add('show');
+
+        // Reset button
+        loginBtn.classList.remove('loading');
+        loginBtn.disabled = false;
+      }
+    });
+
+    // Forgot password handler
+    document.getElementById('forgot-password-link').addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      if (!email) {
+        alert('Please enter your email address first.');
+        return;
+      }
+
+      const result = await resetPassword(email);
+      if (result.success) {
+        alert('Password reset email sent! Please check your inbox.');
+      } else {
+        alert('Error: ' + result.error);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Countdown Timer</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <img src="logo.svg" alt="Logo" class="dashboard-logo">
+                <h1>My Projects</h1>
+            </div>
+            <div class="header-right">
+                <span class="user-email" id="user-email">Loading...</span>
+                <button class="btn-logout" id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Projects Grid -->
+        <main class="projects-grid">
+            <!-- Project 1 - Active -->
+            <div class="project-card active" data-project="1">
+                <div class="project-badge">Active</div>
+                <div class="project-icon">⏱️</div>
+                <h2 class="project-title">Project 1</h2>
+                <h3 class="project-name">Daily Working Task Countdown</h3>
+                <div class="project-stats" id="project-1-stats">
+                    <div class="stat">
+                        <span class="stat-label">Laps</span>
+                        <span class="stat-value" id="lap-count">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Last Activity</span>
+                        <span class="stat-value" id="last-activity">Never</span>
+                    </div>
+                </div>
+                <button class="btn-open-project">Open Project →</button>
+            </div>
+
+            <!-- Projects 2-6 - Coming Soon -->
+            <div class="project-card coming-soon" data-project="2">
+                <div class="project-badge">Coming Soon</div>
+                <div class="project-icon">🚀</div>
+                <h2 class="project-title">Project 2</h2>
+                <h3 class="project-name">Coming Soon</h3>
+                <p class="project-description">This project will be available in a future update.</p>
+                <button class="btn-open-project" disabled>Coming Soon</button>
+            </div>
+
+            <div class="project-card coming-soon" data-project="3">
+                <div class="project-badge">Coming Soon</div>
+                <div class="project-icon">📊</div>
+                <h2 class="project-title">Project 3</h2>
+                <h3 class="project-name">Coming Soon</h3>
+                <p class="project-description">This project will be available in a future update.</p>
+                <button class="btn-open-project" disabled>Coming Soon</button>
+            </div>
+
+            <div class="project-card coming-soon" data-project="4">
+                <div class="project-badge">Coming Soon</div>
+                <div class="project-icon">📈</div>
+                <h2 class="project-title">Project 4</h2>
+                <h3 class="project-name">Coming Soon</h3>
+                <p class="project-description">This project will be available in a future update.</p>
+                <button class="btn-open-project" disabled>Coming Soon</button>
+            </div>
+
+            <div class="project-card coming-soon" data-project="5">
+                <div class="project-badge">Coming Soon</div>
+                <div class="project-icon">💡</div>
+                <h2 class="project-title">Project 5</h2>
+                <h3 class="project-name">Coming Soon</h3>
+                <p class="project-description">This project will be available in a future update.</p>
+                <button class="btn-open-project" disabled>Coming Soon</button>
+            </div>
+
+            <div class="project-card coming-soon" data-project="6">
+                <div class="project-badge">Coming Soon</div>
+                <div class="project-icon">🎯</div>
+                <h2 class="project-title">Project 6</h2>
+                <h3 class="project-name">Coming Soon</h3>
+                <p class="project-description">This project will be available in a future update.</p>
+                <button class="btn-open-project" disabled>Coming Soon</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
