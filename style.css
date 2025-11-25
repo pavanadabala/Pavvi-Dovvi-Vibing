@@ -65,3 +65,77 @@ h1 {
   max-width: 600px;
   margin: 40px auto;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .header-container {
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .app-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  #timer {
+    font-size: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  #lap-btn {
+    font-size: 24px;
+    padding: 15px 30px;
+    margin-bottom: 10px;
+  }
+
+  #laps {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  #laps li {
+    padding: 15px;
+    font-size: 22px;
+  }
+
+  #chart-container {
+    max-width: 100%;
+    margin: 30px auto;
+    padding: 0 10px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .app-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  #timer {
+    font-size: 60px;
+  }
+
+  #lap-btn {
+    font-size: 20px;
+    padding: 12px 25px;
+  }
+
+  #laps li {
+    font-size: 20px;
+  }
+}
