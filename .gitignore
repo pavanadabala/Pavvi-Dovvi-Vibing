@@ -1,0 +1,13 @@
+# Personal notes and to-do items
+TODO.md
+
+# macOS system files
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+# Environment variables (if you add any sensitive config later)
+.env
+.env.local
