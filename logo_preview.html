@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Options</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 50px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .logo-option {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Theme Color */
+        .theme-red {
+            fill: #930d0d;
+        }
+
+        .theme-stroke {
+            stroke: #930d0d;
+            stroke-width: 8;
+            stroke-linecap: round;
+            fill: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Logo Options</h1>
+    <p>Since image generation is currently unavailable, here are 3 vector-based concepts matching your theme (#930d0d).
+    </p>
+
+    <div class="logo-container">
+        <!-- Option 1: Minimalist Clock -->
+        <div class="logo-option">
+            <h2>Option 1: Minimalist</h2>
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" class="theme-stroke" stroke-width="8" />
+                <line x1="50" y1="50" x2="50" y2="20" class="theme-stroke" stroke-width="8" />
+                <line x1="50" y1="50" x2="70" y2="50" class="theme-stroke" stroke-width="8" />
+            </svg>
+        </div>
+
+        <!-- Option 2: Hourglass -->
+        <div class="logo-option">
+            <h2>Option 2: Hourglass</h2>
+            <svg viewBox="0 0 100 100">
+                <path d="M20,20 L80,20 L50,50 L80,80 L20,80 L50,50 Z" class="theme-stroke" stroke-linejoin="round" />
+                <path d="M30,20 L70,20" class="theme-stroke" />
+                <path d="M30,80 L70,80" class="theme-stroke" />
+            </svg>
+        </div>
+
+        <!-- Option 3: Abstract -->
+        <div class="logo-option">
+            <h2>Option 3: Abstract</h2>
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" stroke="#ddd" stroke-width="8" fill="none" />
+                <path d="M50,10 A40,40 0 0,1 90,50" class="theme-stroke" />
+                <text x="50" y="65" font-family="sans-serif" font-weight="bold" font-size="40" fill="#930d0d"
+                    text-anchor="middle">00</text>
+            </svg>
+        </div>
+    </div>
+
+</body>
+
+</html>

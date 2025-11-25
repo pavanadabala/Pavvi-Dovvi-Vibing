@@ -1,0 +1,13 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top Triangle (Green) -->
+  <path d="M20,20 L80,20 L50,50 Z" stroke="#2e7d32" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  
+  <!-- Bottom Triangle (Red) -->
+  <path d="M50,50 L80,80 L20,80 Z" stroke="#930d0d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  
+  <!-- Top Detail Line -->
+  <line x1="30" y1="20" x2="70" y2="20" stroke="#2e7d32" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Bottom Detail Line -->
+  <line x1="30" y1="80" x2="70" y2="80" stroke="#930d0d" stroke-width="8" stroke-linecap="round" />
+</svg>
