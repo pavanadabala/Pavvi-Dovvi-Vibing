@@ -21,3 +21,25 @@
 ---
 
 *Note: This file is git-ignored and won't be pushed to the repository*
+# Portfolio & Countdown Timer Tasks
+
+## Phase 1: Portfolio Setup (Current)
+- [/] Initialize Next.js Project
+- [ ] Create Portfolio Landing Page (Bio, Hero)
+- [ ] Create Projects Catalogue Page
+- [ ] Setup Shared Layout & Navigation
+
+## Phase 2: Migrate Countdown Timer
+- [ ] Create Countdown Timer Route (`/projects/countdown`)
+- [ ] Port Timer Logic to React Hooks
+- [ ] Port UI to Tailwind CSS
+
+## Phase 3: Full Stack Features (Requires Node.js Upgrade)
+- [ ] Setup Database (PostgreSQL)
+- [ ] Setup Prisma ORM
+- [ ] Implement Auth (Clerk/NextAuth)
+- [ ] Save Countdowns to DB
+
+## Legacy Tasks (Archived)
+- [x] Create Git-Ignored Notes
+- [x] Building Authenticated Countdown Timer
