@@ -11,3 +11,6 @@ TODO.md
 # Environment variables (if you add any sensitive config later)
 .env
 .env.local
+
+# Planning documents
+PORTFOLIO_PLAN.md
