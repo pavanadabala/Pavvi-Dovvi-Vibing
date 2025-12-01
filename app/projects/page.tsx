@@ -1,131 +1,70 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { Clock } from "lucide-react";
+
+const projects = [
+    {
+        id: "countdown",
+        name: "Countdown Timer",
+        description: "A multi-project countdown timer with lap tracking and analytics.",
+        href: "/projects/countdown",
+        icon: Clock,
+        status: "Active",
+    },
+    {
+        id: "project2",
+        name: "Project 2",
+        description: "Coming soon...",
+        href: "#",
+        icon: null,
+        status: "Coming Soon",
+    },
+    {
+        id: "project3",
+        name: "Project 3",
+        description: "Coming soon...",
+        href: "#",
+        icon: null,
+        status: "Coming Soon",
+    },
+];
 
 export default function ProjectsPage() {
-    const projects = [
-        {
-            id: 1,
-            title: 'Daily Working Task Countdown',
-            description: 'A beautiful countdown timer with lap tracking and visualization. Track your progress and analyze performance over time.',
-            icon: '⏱️',
-            status: 'active',
-            href: '/projects/countdown',
-            stats: {
-                laps: '-',
-                lastActivity: 'Active'
-            }
-        },
-        {
-            id: 2,
-            title: 'Project 2',
-            description: 'Coming soon. This project will be available in a future update.',
-            icon: '🚀',
-            status: 'coming-soon',
-            href: '#',
-        },
-        {
-            id: 3,
-            title: 'Project 3',
-            description: 'Coming soon. This project will be available in a future update.',
-            icon: '📊',
-            status: 'coming-soon',
-            href: '#',
-        },
-        {
-            id: 4,
-            title: 'Project 4',
-            description: 'Coming soon. This project will be available in a future update.',
-            icon: '📈',
-            status: 'coming-soon',
-            href: '#',
-        },
-        {
-            id: 5,
-            title: 'Project 5',
-            description: 'Coming soon. This project will be available in a future update.',
-            icon: '💡',
-            status: 'coming-soon',
-            href: '#',
-        },
-        {
-            id: 6,
-            title: 'Project 6',
-            description: 'Coming soon. This project will be available in a future update.',
-            icon: '🎯',
-            status: 'coming-soon',
-            href: '#',
-        }
-    ];
-
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-violet-900 py-12 px-4">
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="flex justify-between items-center mb-12">
-                    <div>
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">My Projects</h1>
-                        <p className="text-white/80 text-lg">Explore my work and experiments</p>
-                    </div>
-                    <Link
-                        href="/"
-                        className="px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30
-                       text-white rounded-lg transition-colors"
-                    >
-                        ← Home
-                    </Link>
+        <div className="bg-white py-24 sm:py-32">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-2xl lg:mx-0">
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        My Projects
+                    </h2>
+                    <p className="mt-2 text-lg leading-8 text-gray-600">
+                        A collection of my work and experiments.
+                    </p>
                 </div>
-
-                {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                     {projects.map((project) => (
-                        <div
-                            key={project.id}
-                            className={`
-                bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6
-                transition-all duration-300 
-                ${project.status === 'active'
-                                    ? 'hover:bg-white/15 hover:scale-105 hover:shadow-2xl cursor-pointer'
-                                    : 'opacity-70'
-                                }
-              `}
-                        >
-                            {/* Badge */}
-                            <div className="flex justify-between items-start mb-4">
-                                <span className={`
-                  px-3 py-1 rounded-full text-xs font-semibold
-                  ${project.status === 'active'
-                                        ? 'bg-green-500/20 text-green-300 border border-green-500/50'
-                                        : 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/50'
-                                    }
-                `}>
-                                    {project.status === 'active' ? 'Active' : 'Coming Soon'}
+                        <article key={project.id} className="flex max-w-xl flex-col items-start justify-between p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                            <div className="flex items-center gap-x-4 text-xs">
+                                <span className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                                    {project.status}
                                 </span>
                             </div>
-
-                            {/* Icon */}
-                            <div className="text-6xl mb-4">{project.icon}</div>
-
-                            {/* Content */}
-                            <h2 className="text-2xl font-bold text-white mb-2">{project.title}</h2>
-                            <p className="text-white/70 mb-6 min-h-[60px]">{project.description}</p>
-
-                            {/* Action Button */}
-                            {project.status === 'active' ? (
-                                <Link
-                                    href={project.href}
-                                    className="block w-full px-6 py-3 bg-gradient-to-r from-red-900 to-red-800 text-white font-semibold
-                             text-center rounded-lg hover:scale-105 active:scale-95 transition-transform"
-                                >
-                                    Open Project →
-                                </Link>
-                            ) : (
-                                <button
-                                    disabled
-                                    className="w-full px-6 py-3 bg-white/10 text-white/50 font-semibold rounded-lg cursor-not-allowed"
-                                >
-                                    Coming Soon
-                                </button>
+                            <div className="group relative">
+                                <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                    <Link href={project.href}>
+                                        <span className="absolute inset-0" />
+                                        {project.name}
+                                    </Link>
+                                </h3>
+                                <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                                    {project.description}
+                                </p>
+                            </div>
+                            {project.icon && (
+                                <div className="mt-4">
+                                    <project.icon className="h-6 w-6 text-indigo-600" />
+                                </div>
                             )}
-                        </div>
+                        </article>
                     ))}
                 </div>
             </div>

@@ -1,58 +1,42 @@
-'use client';
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import Link from 'next/link';
-
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-violet-900 flex items-center justify-center px-4">
-      <div className="text-center">
-        {/* Logo */}
-        <div className="mb-8 animate-float">
-          <div className="text-8xl">⏱️</div>
-        </div>
-
-        {/* Title */}
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-          Welcome to My Portfolio
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
-          Explore my projects and see what I've been working on
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
-          <Link
-            href="/projects"
-            className="px-8 py-4 bg-gradient-to-r from-red-900 to-red-800 text-white font-semibold text-lg rounded-xl
-                       hover:scale-105 active:scale-95 transition-transform duration-200 shadow-lg hover:shadow-xl"
-          >
-            View Projects →
-          </Link>
-          <Link
-            href="/about"
-            className="px-8 py-4 bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-semibold text-lg rounded-xl
-                       hover:scale-105 active:scale-95 transition-transform duration-200 hover:bg-white/30"
-          >
-            About Me
-          </Link>
+    <div className="bg-white">
+      {/* Hero Section */}
+      <div className="relative isolate px-6 pt-14 lg:px-8">
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              Check out my latest projects.{" "}
+              <Link href="/projects" className="font-semibold text-indigo-600">
+                <span className="absolute inset-0" aria-hidden="true" />
+                View Portfolio <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
+          </div>
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              Welcome to My Portfolio
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              I'm a passionate developer building interactive web applications. Explore my work, including my custom Countdown Timer and more.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                href="/projects"
+                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                See Projects
+              </Link>
+              <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900">
+                Learn more <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }
