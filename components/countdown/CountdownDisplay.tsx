@@ -36,22 +36,22 @@ export default function CountdownDisplay({ targetDate, onTick }: CountdownDispla
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <div className="text-4xl font-bold text-indigo-600">{days}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Days</div>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 text-center">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">{days}</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">Days</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <div className="text-4xl font-bold text-indigo-600">{hours}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Hours</div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">{hours}</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">Hours</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <div className="text-4xl font-bold text-indigo-600">{minutes}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Minutes</div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">{minutes}</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">Minutes</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <div className="text-4xl font-bold text-indigo-600">{seconds}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Seconds</div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">{seconds}</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">Seconds</div>
             </div>
         </div>
     );

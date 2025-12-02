@@ -3,24 +3,24 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-200">
       {/* Hero Section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20 dark:hover:ring-gray-100/20">
               Check out my latest projects.{" "}
-              <Link href="/projects" className="font-semibold text-indigo-600">
+              <Link href="/projects" className="font-semibold text-indigo-600 dark:text-indigo-400">
                 <span className="absolute inset-0" aria-hidden="true" />
                 View Portfolio <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
               Welcome to My Portfolio
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
               I'm a passionate developer building interactive web applications. Explore my work, including my custom Countdown Timer and more.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -30,7 +30,7 @@ export default function Home() {
               >
                 See Projects
               </Link>
-              <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900">
+              <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
                 Learn more <span aria-hidden="true">→</span>
               </Link>
             </div>

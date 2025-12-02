@@ -8,6 +8,7 @@ import CountdownDisplay from "@/components/countdown/CountdownDisplay";
 import LapList from "@/components/countdown/LapList";
 import LapChart from "@/components/countdown/LapChart";
 import { Play, Pause, RotateCcw, Flag } from "lucide-react";
+import Button from "@/components/ui/Button";
 
 interface Lap {
     id: number;
@@ -79,31 +80,28 @@ export default function CountdownPage() {
     };
 
     if (loading) {
-        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+        return <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 text-gray-900 dark:text-white">Loading...</div>;
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-12">
-                    <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                    <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
                         Countdown Timer
                     </h1>
-                    <p className="mt-2 text-gray-600">
-                        Track time and record laps.
+                    <p className="mt-5 max-w-xl mx-auto text-xl text-gray-500 dark:text-gray-400">
+                        Track your time and record laps.
                     </p>
                 </div>
 
                 <CountdownDisplay targetDate={targetDate} onTick={handleTick} />
 
                 <div className="mt-8 flex justify-center space-x-4">
-                    <button
-                        onClick={handleLap}
-                        className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
+                    <Button onClick={handleLap} size="lg">
                         <Flag className="mr-2 h-5 w-5" />
                         Lap
-                    </button>
+                    </Button>
                 </div>
 
                 {laps.length > 5 && <LapChart laps={laps} />}

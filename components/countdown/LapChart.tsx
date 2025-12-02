@@ -58,8 +58,11 @@ export default function LapChart({ laps }: LapChartProps) {
     };
 
     return (
-        <div className="mt-8 bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-            <Line options={options} data={data} />
+        <div className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Lap Differences Analysis</h2>
+            <div className="h-64">
+                <Line options={options} data={data} />
+            </div>
         </div>
     );
 }
