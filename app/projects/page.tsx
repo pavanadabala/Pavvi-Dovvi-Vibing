@@ -30,10 +30,10 @@ const projects = [
 
 export default function ProjectsPage() {
     return (
-        <div className="bg-white dark:bg-gray-900 py-24 sm:py-32 transition-colors duration-200">
+        <div className="bg-background text-foreground py-24 sm:py-32 transition-colors duration-200">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                         My Projects
                     </h2>
                     <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
                                 </span>
                             </div>
                             <div className="group relative">
-                                <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300">
+                                <h3 className="mt-3 text-lg font-semibold leading-6 text-foreground group-hover:text-gray-600 dark:group-hover:text-gray-300">
                                     <Link href={project.href}>
                                         <span className="absolute inset-0" />
                                         {project.name}

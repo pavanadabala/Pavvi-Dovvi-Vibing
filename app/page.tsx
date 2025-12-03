@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="bg-background text-foreground transition-colors duration-200">
       {/* Hero Section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
@@ -17,7 +17,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
               Welcome to My Portfolio
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -30,7 +30,7 @@ export default function Home() {
               >
                 See Projects
               </Link>
-              <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
+              <Link href="/about" className="text-sm font-semibold leading-6 text-foreground">
                 Learn more <span aria-hidden="true">→</span>
               </Link>
             </div>
