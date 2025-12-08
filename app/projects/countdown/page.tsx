@@ -80,14 +80,14 @@ export default function CountdownPage() {
     };
 
     if (loading) {
-        return <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 text-gray-900 dark:text-white">Loading...</div>;
+        return <div className="min-h-screen flex items-center justify-center bg-background text-foreground">Loading...</div>;
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
+        <div className="min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
+                    <h1 className="text-4xl font-extrabold text-foreground sm:text-5xl sm:tracking-tight lg:text-6xl">
                         Countdown Timer
                     </h1>
                     <p className="mt-5 max-w-xl mx-auto text-xl text-gray-500 dark:text-gray-400">
