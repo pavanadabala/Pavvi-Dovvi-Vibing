@@ -44,18 +44,18 @@ export default function ProjectsPage() {
                     {projects.map((project) => (
                         <article key={project.id} className="flex max-w-xl flex-col items-start justify-between p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-700">
                             <div className="flex items-center gap-x-4 text-xs">
-                                <span className="relative z-10 rounded-full bg-gray-50 dark:bg-gray-700 px-3 py-1.5 font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                <span className="relative z-10 rounded-full bg-gray-50 dark:bg-gray-700 px-3 py-1.5 font-medium text-gray-600 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">
                                     {project.status}
                                 </span>
                             </div>
                             <div className="group relative">
-                                <h3 className="mt-3 text-lg font-semibold leading-6 text-foreground group-hover:text-gray-600 dark:group-hover:text-gray-300">
+                                <h3 className="mt-3 text-lg font-semibold leading-6 text-foreground group-hover:text-gray-600 dark:group-hover:text-gray-200">
                                     <Link href={project.href}>
                                         <span className="absolute inset-0" />
                                         {project.name}
                                     </Link>
                                 </h3>
-                                <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                                <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
                                     {project.description}
                                 </p>
                             </div>
