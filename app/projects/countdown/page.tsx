@@ -1,13 +1,15 @@
 "use client";
 
+
 import { useState, useEffect } from "react";
+import { Great_Vibes } from "next/font/google";
 import { useAuth } from "@/context/AuthContext";
 import { db } from "@/lib/firebase";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion, serverTimestamp } from "firebase/firestore";
 import CountdownDisplay from "@/components/countdown/CountdownDisplay";
 import LapList from "@/components/countdown/LapList";
 import LapChart from "@/components/countdown/LapChart";
-import { Play, Pause, RotateCcw, Flag } from "lucide-react";
+import { Play, Pause, RotateCcw, Flag, Gift, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 interface Lap {
@@ -17,9 +19,11 @@ interface Lap {
     timestamp: any;
 }
 
+const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });
+
 export default function CountdownPage() {
     const { user } = useAuth();
-    const [targetDate, setTargetDate] = useState<number>(new Date("2025/12/31 23:59:59").getTime());
+    const [targetDate, setTargetDate] = useState<number>(new Date("2026/12/25 23:59:59").getTime());
     const [timeLeft, setTimeLeft] = useState(0);
     const [laps, setLaps] = useState<Lap[]>([]);
     const [loading, setLoading] = useState(true);
@@ -87,11 +91,15 @@ export default function CountdownPage() {
         <div className="min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-extrabold text-foreground sm:text-5xl sm:tracking-tight lg:text-6xl">
-                        Countdown Timer
+                    <h1 className={`${greatVibes.className} flex flex-col sm:flex-row items-center justify-center gap-3 text-5xl font-extrabold text-red-600 dark:text-red-500 sm:text-6xl sm:tracking-tight lg:text-7xl drop-shadow-sm`}>
+                        <Gift className="w-12 h-12 text-green-600 dark:text-green-500 animate-bounce hidden sm:block" />
+                        <span>Countdown to Christmas 2026</span>
+                        <Gift className="w-12 h-12 text-green-600 dark:text-green-500 animate-bounce hidden sm:block" />
                     </h1>
-                    <p className="mt-5 max-w-xl mx-auto text-xl text-gray-500 dark:text-gray-400">
-                        Track your time and record laps.
+                    <p className="mt-5 max-w-xl mx-auto text-xl font-medium text-green-700 dark:text-green-400 flex items-center justify-center gap-2">
+                        <Sparkles className="w-5 h-5 text-yellow-500" />
+                        Get into the festive spirit and track the time!
+                        <Sparkles className="w-5 h-5 text-yellow-500" />
                     </p>
                 </div>
 
