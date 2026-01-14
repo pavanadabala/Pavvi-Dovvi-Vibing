@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,7 +7,6 @@ import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const lora = Lora({ subsets: ["latin"], variable: "--font-lora" });
 
 export const metadata: Metadata = {
   title: "My Portfolio",
@@ -46,7 +45,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${lora.variable} font-serif flex flex-col min-h-screen bg-background text-microsoft-warm-text dark:text-gray-100 transition-colors duration-200`}>
+      <body className={`${inter.variable} font-sans flex flex-col min-h-screen bg-background text-foreground transition-colors duration-200`}>
+
         <ThemeProvider>
           <AuthProvider>
             <Navbar />
