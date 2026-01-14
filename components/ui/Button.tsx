@@ -13,7 +13,7 @@ export default function Button({
     children,
     ...props
 }: ButtonProps) {
-    const baseStyles = "inline-flex items-center justify-center border font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200";
+    const baseStyles = "inline-flex items-center justify-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200";
 
     const variants = {
         primary: "border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500",
