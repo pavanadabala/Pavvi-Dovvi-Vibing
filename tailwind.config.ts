@@ -17,6 +17,9 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
+                "microsoft-cream": "#FEF9ED",
+                "microsoft-warm-text": "#5D524B",
+                "microsoft-glass": "rgba(255, 255, 255, 0.5)",
             },
         },
     },
