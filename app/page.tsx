@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ScrollGallery from "@/components/ScrollGallery";
+
 
 export default function Home() {
   return (
@@ -37,6 +39,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* Scroll Animation Gallery */}
+      <ScrollGallery />
     </div>
+
   );
 }
+
