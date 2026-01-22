@@ -1,61 +1,48 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
+import { useState, useRef } from "react";
 import { useLoading } from "@/context/LoadingContext";
 
 export default function WindmillLogo() {
-    const controls = useAnimation();
     const { isLoading, triggerPageLoad } = useLoading();
+    const rotation = useMotionValue(0);
+    const [isHovering, setIsHovering] = useState(false);
 
     // Color from reference: Copper/Orange
-    const logoColor = "#DCA376"; // Light copper/sand color
+    const logoColor = "#DCA376";
 
-    useEffect(() => {
-        // Determine speed based on loading state
-        const duration = isLoading ? 0.3 : 10; // 0.3s (very fast) if loading, 10s (slow) otherwise
+    // Speed configurations (degrees per frame)
+    const SLOW_SPEED = 0.5;   // ~30 deg/sec (very relaxed)
+    const HOVER_SPEED = 3;    // ~180 deg/sec
+    const LOAD_SPEED = 15;    // ~900 deg/sec (fast blur)
 
-        controls.start({
-            rotate: 360,
-            transition: {
-                repeat: Infinity,
-                ease: "linear",
-                duration: duration,
-            },
-        });
-    }, [isLoading, controls]);
+    // Use a ref to smoothly interpolate speed for momentum effect (optional but nice)
+    const currentSpeed = useRef(SLOW_SPEED);
 
-    const handleHoverStart = () => {
-        if (!isLoading) {
-            controls.start({
-                rotate: 360,
-                transition: {
-                    repeat: Infinity,
-                    ease: "linear",
-                    duration: 2, // Medium fast on hover
-                }
-            });
-        }
-    };
+    useAnimationFrame((t, delta) => {
+        // Determine target speed based on state
+        let targetSpeed = SLOW_SPEED;
+        if (isLoading) targetSpeed = LOAD_SPEED;
+        else if (isHovering) targetSpeed = HOVER_SPEED;
 
-    const handleHoverEnd = () => {
-        if (!isLoading) {
-            controls.start({
-                rotate: 360,
-                transition: {
-                    repeat: Infinity,
-                    ease: "linear",
-                    duration: 10, // Back to slow
-                }
-            });
-        }
-    };
+        // Simple smooth acceleration (Linear interpolation for now)
+        // Move currentSpeed 5% towards targetSpeed each frame for momentum
+        currentSpeed.current = currentSpeed.current + (targetSpeed - currentSpeed.current) * 0.05;
+
+        // Update rotation
+        // Adjust for delta time to be consistent across frame rates (delta is in ms)
+        // 60fps ~ 16.6ms per frame. 
+        // Normalized speed factor: delta / 16.666
+        const timeFactor = delta / 16.666;
+        rotation.set(rotation.get() + (currentSpeed.current * timeFactor));
+    });
 
     return (
         <div
             className="flex items-center h-20 w-32 relative cursor-pointer"
-            onMouseEnter={handleHoverStart}
-            onMouseLeave={handleHoverEnd}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
             onClick={triggerPageLoad}
             style={{ color: logoColor }}
         >
@@ -89,20 +76,31 @@ export default function WindmillLogo() {
                 <path d="M 48 70 L 48 65 A 2 2 0 0 1 52 65 L 52 70" />
 
                 {/* Spinning Fan Group */}
-                {/* Centered at 50, 40 (Top of tower) */}
+                {/* 
+                    Method: Centered Geometry 
+                    We define the blades around (0,0) so the center of rotation is naturally (0,0).
+                    Then we translate the entire group to position (50, 40).
+                    This prevents any bounding-box based transform origin issues.
+                */}
                 <motion.g
-                    animate={controls}
-                    initial={{ originX: 0.5, originY: 0.5 }} // Use relative center if bounding box is correct
-                    style={{ transformOrigin: "50px 40px" }} // Explicit pixel fallback
+                    style={{
+                        rotate: rotation,
+                        translateX: 50,
+                        translateY: 40,
+                    }}
                 >
-                    {/* 4 Blades (X shape) - Symmetrical around 50,40 */}
-                    <path d="M50 40 L 40 25 L 45 22 L 50 40" fill="none" />
-                    <path d="M50 40 L 60 25 L 65 22 L 50 40" fill="none" />
-                    <path d="M50 40 L 60 55 L 65 58 L 50 40" fill="none" />
-                    <path d="M50 40 L 40 55 L 35 58 L 50 40" fill="none" />
+                    {/* Blades defined relative to 0,0 */}
+                    {/* Top Left (-10, -15) */}
+                    <path d="M0 0 L -10 -15 L -5 -18 L 0 0" fill="none" />
+                    {/* Top Right (10, -15) */}
+                    <path d="M0 0 L 10 -15 L 15 -18 L 0 0" fill="none" />
+                    {/* Bottom Right (10, 15) */}
+                    <path d="M0 0 L 10 15 L 15 18 L 0 0" fill="none" />
+                    {/* Bottom Left (-10, 15) */}
+                    <path d="M0 0 L -10 15 L -5 18 L 0 0" fill="none" />
 
                     {/* Center Hub */}
-                    <circle cx="50" cy="40" r="3" fill="currentColor" stroke="none" />
+                    <circle cx="0" cy="0" r="3" fill="currentColor" stroke="none" />
                 </motion.g>
 
 
