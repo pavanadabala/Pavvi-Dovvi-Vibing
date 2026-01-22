@@ -85,8 +85,8 @@ export default function Navbar() {
                                     <Bell className="h-5 w-5" />
                                 </Button>
                                 {showNotifications && (
-                                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                        <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300">
+                                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-900 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 dark:ring-gray-700 focus:outline-none border border-transparent dark:border-gray-700">
+                                        <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200">
                                             No new notifications
                                         </div>
                                     </div>
