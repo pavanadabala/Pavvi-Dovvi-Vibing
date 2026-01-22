@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { LoadingProvider } from "@/context/LoadingContext";
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const dancingScript = Dancing_Script({ subsets: ["latin"], variable: "--font-dancing" });
+
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Showcase of my projects and skills",
+  title: "Pavvi Dovvi Vibing | Portfolio",
+  description: "A digital space for persistence and hustle.",
 };
 
 export default function RootLayout({
@@ -45,17 +49,21 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans flex flex-col min-h-screen bg-background text-foreground transition-colors duration-200`}>
+      <body className={`${inter.variable} ${dancingScript.variable} font-sans flex flex-col min-h-screen bg-background text-foreground transition-colors duration-200`}>
+
 
         <ThemeProvider>
           <AuthProvider>
-            <Navbar />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
+            <LoadingProvider>
+              <Navbar />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </LoadingProvider>
           </AuthProvider>
         </ThemeProvider>
+
       </body>
     </html>
   );

@@ -7,7 +7,9 @@ import { signOut } from "firebase/auth";
 import { LogIn, LogOut, Bell, Sun, Moon, Monitor } from "lucide-react";
 import Button from "@/components/ui/Button";
 import WelcomeOverlay from "@/components/ui/WelcomeOverlay";
+import WindmillLogo from "@/components/ui/WindmillLogo";
 import { useTheme } from "@/context/ThemeContext";
+
 import { useState } from "react";
 
 export default function Navbar() {
@@ -44,11 +46,13 @@ export default function Navbar() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex items-center">
-                            <Link href="/" className="flex-shrink-0 flex items-center">
-                                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                    Portfolio
+                            <Link href="/" className="flex-shrink-0 flex items-center group -ml-2">
+                                <WindmillLogo />
+                                <span className="text-xl font-bold tracking-[0.2em] uppercase text-[#DCA376] -ml-2 pt-1 font-sans">
+                                    Pavvi Dovvi Vibing
                                 </span>
                             </Link>
+
                             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                                 <Link
                                     href="/"

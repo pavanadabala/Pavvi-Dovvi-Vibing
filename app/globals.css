@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f9fafb; /* Gray 50 */
-  --foreground: #111827; /* Gray 900 */
+  --background: #f9fafb;
+  /* Gray 50 */
+  --foreground: #111827;
+  /* Gray 900 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --font-dancing: var(--font-dancing);
+  --font-mono: var(--font-geist-mono);
 }
 
 /* Dark mode handled via class */
 
 .dark {
-  --background: #111827; /* Gray 900 */
-  --foreground: #f3f4f6; /* Gray 100 */
+  --background: #111827;
+  /* Gray 900 */
+  --foreground: #f3f4f6;
+  /* Gray 100 */
 }
 
 body {
@@ -23,4 +29,3 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
-
