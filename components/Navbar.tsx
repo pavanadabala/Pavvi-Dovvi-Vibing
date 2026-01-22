@@ -48,7 +48,7 @@ export default function Navbar() {
                         <div className="flex items-center">
                             <Link href="/" className="flex-shrink-0 flex items-center group -ml-2">
                                 <WindmillLogo />
-                                <span className="text-xl font-bold tracking-[0.2em] uppercase text-[#DCA376] -ml-2 pt-1 font-sans">
+                                <span className="text-xs sm:text-xl font-bold tracking-widest sm:tracking-[0.2em] uppercase text-[#DCA376] -ml-2 pt-1 font-sans truncate max-w-[200px] sm:max-w-none">
                                     Pavvi Dovvi Vibing
                                 </span>
                             </Link>
