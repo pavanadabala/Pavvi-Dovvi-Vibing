@@ -29,21 +29,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const theme = localStorage.getItem('theme') || 'auto';
+                // FORCE LIGHT MODE (Disabled Dark Mode per user request)
                 const root = document.documentElement;
-                
-                if (theme === 'dark') {
-                  root.classList.add('dark');
-                } else if (theme === 'light') {
-                  root.classList.remove('dark');
-                } else {
-                  // Auto mode - check system preference
-                  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    root.classList.add('dark');
-                  } else {
-                    root.classList.remove('dark');
-                  }
-                }
+                root.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
               })();
             `,
           }}

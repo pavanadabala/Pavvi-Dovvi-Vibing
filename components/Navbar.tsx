@@ -71,9 +71,8 @@ export default function Navbar() {
 
                         {/* Desktop Menu */}
                         <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
-                            <Button variant="ghost" size="sm" onClick={toggleTheme} className="rounded-full !p-2">
-                                {getThemeIcon()}
-                            </Button>
+                            {/* Theme Toggle Removed - Dark Mode Disabled */}
+
 
                             <div className="relative">
                                 <Button
@@ -162,9 +161,8 @@ export default function Navbar() {
                         <div className="pt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
                             <div className="flex items-center px-4 space-x-4">
                                 <div className="flex-shrink-0">
-                                    <Button variant="ghost" size="sm" onClick={toggleTheme} className="rounded-full !p-2">
-                                        {getThemeIcon()}
-                                    </Button>
+                                    {/* Theme Toggle Removed */}
+
                                 </div>
                                 <div className="flex-shrink-0">
                                     <Button variant="ghost" size="sm" onClick={() => setShowNotifications(!showNotifications)} className="rounded-full !p-2">
